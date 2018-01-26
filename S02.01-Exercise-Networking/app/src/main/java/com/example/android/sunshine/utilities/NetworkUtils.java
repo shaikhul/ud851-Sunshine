@@ -74,7 +74,7 @@ public final class NetworkUtils {
                 .appendPath("data")
                 .appendPath("2.5")
                 .appendPath("weather")
-                .appendQueryParameter("appid", "MY-API-KEY")
+                .appendQueryParameter("appid", "164a8efaf184f0aa632557a681108182")
                 .appendQueryParameter("q", locationQuery)
                 .appendQueryParameter("units", "Imperial")
                 .build();
