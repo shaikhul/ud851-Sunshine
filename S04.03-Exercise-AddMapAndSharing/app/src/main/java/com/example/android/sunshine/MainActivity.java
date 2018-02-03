@@ -221,8 +221,27 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             return true;
         }
 
-        // TODO (2) Launch the map when the map menu item is clicked
+        // ✅ TODO (2) Launch the map when the map menu item is clicked
+        if (id == R.id.action_open_map) {
+            openMap("225 Baker Street NW, Atlanta, GA");
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    void openMap(String address)
+    {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Uri uri = new Uri.Builder()
+                .scheme("geo")
+                .appendPath("0,0")
+                .appendQueryParameter("q", address)
+                .build();
+        intent.setData(uri);
+
+        Log.v("openMap", uri.toString());
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }
